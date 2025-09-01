@@ -1,18 +1,19 @@
 package main
 
 import (
-    "github.com/gin-gonic/gin"
-    "net/http"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-    r := gin.Default()
+	r := gin.Default()
 
-    r.GET("/", func(c *gin.Context) {
-        c.JSON(http.StatusOK, gin.H{
-            "message": "Привет из Gin + K3s!",
-        })
-    })
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "Привет из Gin + K3s!",
+		})
+	})
 
-    r.Run(":8080")
+	r.Run(":8087")
 }
