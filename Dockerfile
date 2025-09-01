@@ -13,7 +13,11 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
 # Финальный минимальный образ
 FROM alpine:latest
+# Финальный образ с curl
+FROM alpine:latest
 
+# 🆕 Устанавливаем curl
+RUN apk add --no-cache curl
 WORKDIR /root/
 COPY --from=builder /app/app .
 
